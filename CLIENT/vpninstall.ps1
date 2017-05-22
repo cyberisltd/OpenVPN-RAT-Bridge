@@ -26,8 +26,8 @@ if (Test-Path "c:\program files\openvpn\config\") {
 # Make sure your toolset includes devcon (it's not inbuilt, it's part of the WDK)
 # Note, you need to create a signed CAT file, and import the cert to both the ROOT store and Trusted publisher store to get it working (instructions followed from http://www.richud.com/wiki/Windows_7_Install_Unsigned_Drivers_CAT_fix)
 Write-Host "Adding certificates for the bridge driver..."
-certutil.exe -addstore "TrustedPublisher" .\tools\test.p7b
-certutil.exe -addstore "ROOT" .\tools\test.p7b
+certutil.exe -addstore "TrustedPublisher" .\tools\driver.cer
+certutil.exe -addstore "ROOT" .\tools\driver.cer
 
 # Now to the actual driver install - note, this doesn't add the adapters to the bridge.
 Write-Host "Creating the bridge..."
